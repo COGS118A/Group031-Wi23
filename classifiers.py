@@ -47,11 +47,11 @@ def get_hyperparameter_search_results(model, df_train, df_labels, search_type,
     return search_results
 
 rf_param_grid = [
-    {'n_estimators': [20, 40, 60, 80, 100, 120, 140, 160, 180, 200],
-     'min_samples_split': [200, 500, 700, 900, 1000, 1200, 1500, 2000, 3000, 4000], 
+    {'n_estimators': [20, 70, 120, 170, 220, 320, 370, 420, 470, 570],
+     'min_samples_split': [50, 100, 150, 200, 300, 500, 700, 1000, 2000, 3000], 
      'max_depth': [4, 8, 12, 16, 20, 24, 32, 36, 40,None],
      'warm_start': [True],
-     'min_samples_leaf':[20, 50, 70, 90, 100, 120, 150, 200, 300, 400]}
+     'min_samples_leaf':[1, 5, 20, 30, 70, 100, 150, 200, 300, 500]} 
   ]
 
 subset_1 = [
@@ -76,12 +76,14 @@ subset_3 = [
      'min_samples_split': [1500, 2000, 3000, 4000], 
      'max_depth': [32, 36, 40,None], 
      'warm_start': [True], 
-     'min_samples_leaf':[150, 200, 300, 400]}
+     'min_samples_leaf':[150, 200, 300, 400],
+     "random_state": [42]}
   ]
 
 
 svm_param_grid = [
-    {"C": [0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 2.25, 2.5], 
+    {"C": [0.0001, 0.001, 0.01, .1, 1, 10, 100, 1000, 10000], 
      "kernel":["linear", "poly", "rbf", "sigmoid"],
-     "degree":[1,2,3,4]} #no 10 settings for this because 
+     "degree":[1,2,3,4],
+     "random_state":[42]} 
 ]
