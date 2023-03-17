@@ -79,9 +79,10 @@ subset_3 = [
      'min_samples_leaf':[150, 200, 300, 400]}
   ]
 
-
 svm_param_grid = [
-    {"C": [0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 2.25, 2.5], 
-     "kernel":["linear", "poly", "rbf", "sigmoid"],
-     "degree":[1,2,3,4]} #no 10 settings for this because 
+    {"C": [0.001, 0.01, 0.1, 1, 10, 100, 1000, 10000], 
+     "kernel":["linear", "rbf"],
+     "degree":[1,2,3,4],
+     "random_state":[42],
+     "decision_function_shape": ['ovr', 'ovo']} 
 ]
